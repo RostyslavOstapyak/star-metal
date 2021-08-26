@@ -17,43 +17,19 @@ let uslugiBtn = document.getElementById("uslugiButton");
 let galeriaBtn = document.getElementById("galeriaButton");
 let kontaktBtn = document.getElementById("kontaktButton");
 
-glownaBtn.onclick = function () {
-  glownaSec.classList.add("active", "animate__backInLeft");
+// window.addEventListener("scroll", () => {
+//   const scrolled = window.scrollY;
 
-  uslugiSec.classList.remove("active");
-  galeriaSec.classList.remove("active");
-  kontaktSec.classList.remove("active");
+//   console.log(scrolled);
+// });
+
+activeBtn.onclick = () => {
+  console.log("f");
+  langPlBtn.style.display = "block";
+  langUaBtn.style.display = "block";
+  langRuBtn.style.display = "block";
+  langEngBtn.style.display = "block";
 };
-
-uslugiBtn.onclick = function () {
-  uslugiSec.classList.add("active");
-
-  glownaSec.classList.remove("active");
-  galeriaSec.classList.remove("active");
-  kontaktSec.classList.remove("active");
-};
-
-galeriaBtn.onclick = function () {
-  galeriaSec.classList.add("active");
-
-  glownaSec.classList.remove("active");
-  uslugiSec.classList.remove("active");
-  kontaktSec.classList.remove("active");
-};
-
-kontaktBtn.onclick = function () {
-  kontaktSec.classList.add("active");
-
-  glownaSec.classList.remove("active");
-  uslugiSec.classList.remove("active");
-  galeriaSec.classList.remove("active");
-};
-
-let langPanel = document.getElementById("languagePannel");
-let langPlBtn = document.getElementById("languagePl");
-let langUaBtn = document.getElementById("languageUa");
-let langRuBtn = document.getElementById("languageRu");
-let langEngBtn = document.getElementById("languageEng");
 
 langPlBtn.onclick = function () {
   document.getElementById("nav-glowna").innerHTML = "Główna";
@@ -81,14 +57,13 @@ langPlBtn.onclick = function () {
   document.getElementById("uslugi-lineEleven").innerHTML = "Spawanie blach";
   document.getElementById("uslugi-lineTwelve").innerHTML =
     "Spawanie detali i elementów samochodowych";
-    document.getElementById("uslugi-lineThirteen").innerHTML =
-      "Możliwość spawania w siedzibie firmy lub u klienta";
+  document.getElementById("uslugi-lineThirteen").innerHTML =
+    "Możliwość spawania w siedzibie firmy lub u klienta";
 
   document.getElementById("kontakt-title").innerHTML = "Kontakt";
   document.getElementById("work-time").innerHTML = "Godziny otwarcia:";
   document.getElementById("work-time-one").innerHTML = "Pn.-Pt.:";
   document.getElementById("work-time-two").innerHTML = "So.-Nd.:";
-
 };
 
 langUaBtn.onclick = function () {
@@ -121,8 +96,6 @@ langUaBtn.onclick = function () {
     "Зварювання деталей та елементів автомобіля";
   document.getElementById("uslugi-lineThirteen").innerHTML =
     "Можливість зварювання в компанії або на місці в замовника";
-
- 
 
   //kontakt
   document.getElementById("kontakt-title").innerHTML = "Контакти";
@@ -161,8 +134,6 @@ langRuBtn.onclick = function () {
     "Сварка деталей и элементов автомобиля";
   document.getElementById("uslugi-lineThirteen").innerHTML =
     "Возможность сварки на фирме или на месте у заказчика";
-
-
 
   //kontakt
   document.getElementById("kontakt-title").innerHTML = "Контакт";
@@ -203,13 +174,9 @@ langEngBtn.onclick = function () {
   document.getElementById("uslugi-lineThirteen").innerHTML =
     "Possibility of welding at the customer";
 
-
-
   //kontakt
   document.getElementById("kontakt-title").innerHTML = "Contact";
   document.getElementById("work-time").innerHTML = "Opening hours:";
-  document.getElementById("work-time-one").innerHTML =
-    "Mo.- Fr.:";
-  document.getElementById("work-time-two").innerHTML =
-    "Sa.-Su.:";
+  document.getElementById("work-time-one").innerHTML = "Mo.- Fr.:";
+  document.getElementById("work-time-two").innerHTML = "Sa.-Su.:";
 };

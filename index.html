@@ -35,12 +35,14 @@
   <!-- own site styles-->
     <link rel="stylesheet" href="styles/main.css" />
     <!-- own site styles-->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <title>Star Metal</title>
  <!-- Icon on top of page-->
     <link rel="shortcut icon" href="images/site-ico.png" type="image/png">
   </head>
-  <body>
+  <body id='body'>
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7DRCQ7"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -54,29 +56,30 @@
           </div>
           <ul class="nav">
             <li class="nav__item">
-              <a class="nav__item__link" href="#" id="glownaButton"
+              <a class="nav__item__link" href="#sectionGlowna" id="glownaButton" data-scroll="#sectionGlowna"
                 ><h2 class="nav__item__text" id="nav-glowna">Główna</h2></a
               >
             </li>
             <li class="nav__item">
-              <a class="nav__item__link" href="#" id="uslugiButton"
+              <a class="nav__item__link" href="#sectionUslugi" id="uslugiButton" data-scroll="#sectionUslugi"
                 ><h2 class="nav__item__text" id="nav-uslugi">Usługi</h2></a
               >
             </li>
             <li class="nav__item">
-              <a class="nav__item__link" href="#" id="galeriaButton"
+              <a class="nav__item__link" href="#sectionGaleria" id="galeriaButton" data-scroll="#sectionGaleria"
                 ><h2 class="nav__item__text" id="nav-galeria">Galeria</h2></a
               >
             </li>
             <li class="nav__item">
-              <a class="nav__item__link" href="#" id="kontaktButton"
+              <a class="nav__item__link" href="#sectionKontakt" id="kontaktButton" data-scroll="#sectionKontakt"
                 ><h2 class="nav__item__text" id="nav-kontakt">Kontakt</h2></a
               >
             </li>
           </ul>
         </nav>
         <div class="language" id="languagePannel">
-          <button class="language__pl language__button" id="languagePl"></button>
+         
+          <button class="language__pl language__button language__button_active" id="languagePl"></button>
           <button class="language__ua language__button" id="languageUa"></button>
           <button class="language__ru language__button" id="languageRu"></button>
           <button class="language__eng language__button" id="languageEng"></button>
@@ -154,32 +157,40 @@
             
           </section>
           <section class="section__galeria" id="sectionGaleria">
-            <div
-            class="gallery__item"
-            onclick="classList.toggle('active__item');classList.toggle('gallery__item');"
-          >
-            <img
-              class="gallery__item__image"
-              src="images/gallery/1.jpg"
-              alt="przyklad pracy"
-            />
-            
+        
+          <div class="gallery__item" onclick="classList.toggle('active__item');classList.toggle('gallery__item');">
+            <img class="gallery__item__image" src="images/gallery/1.jpg" alt="przyklad pracy"/>
           </div>
-          <div
-            class="gallery__item"
-            onclick="classList.toggle('active__item');classList.toggle('gallery__item');"
-          >
-            <img
-              class="gallery__item__image"
-              src="images/gallery/1.jpg"
-              alt="przyklad pracy"
-            />
-           
+           <div class="gallery__item" onclick="classList.toggle('active__item');classList.toggle('gallery__item');" >
+            <img class="gallery__item__image" src="images/gallery/7.jpg"  alt="przyklad pracy" />
+          </div>
+           <div class="gallery__item" onclick="classList.toggle('active__item');classList.toggle('gallery__item');" >
+            <img class="gallery__item__image" src="images/gallery/6.jpg"  alt="przyklad pracy" />
+          </div>
+           <div class="gallery__item" onclick="classList.toggle('active__item');classList.toggle('gallery__item');" >
+            <img class="gallery__item__image" src="images/gallery/5.jpg"  alt="przyklad pracy" />
+          </div>
+           <div class="gallery__item" onclick="classList.toggle('active__item');classList.toggle('gallery__item');" >
+            <img class="gallery__item__image" src="images/gallery/4.jpg"  alt="przyklad pracy" />
+          </div>
+           <div class="gallery__item" onclick="classList.toggle('active__item');classList.toggle('gallery__item');" >
+            <img class="gallery__item__image" src="images/gallery/11.jpg"  alt="przyklad pracy" />
           </div>
           <div class="gallery__item" onclick="classList.toggle('active__item');classList.toggle('gallery__item');" >
-            <img class="gallery__item__image" src="images/gallery/1.jpg"  alt="przyklad pracy" />
+            <img class="gallery__item__image" src="images/gallery/2.jpg"  alt="przyklad pracy" />
           </div>
-          
+          <div class="gallery__item" onclick="classList.toggle('active__item');classList.toggle('gallery__item');" >
+            <img class="gallery__item__image" src="images/gallery/3.jpg"  alt="przyklad pracy" />
+          </div>         
+          <div class="gallery__item" onclick="classList.toggle('active__item');classList.toggle('gallery__item');" >
+            <img class="gallery__item__image" src="images/gallery/8.jpg"  alt="przyklad pracy" />
+          </div>
+          <div class="gallery__item" onclick="classList.toggle('active__item');classList.toggle('gallery__item');" >
+            <img class="gallery__item__image" src="images/gallery/9.jpg"  alt="przyklad pracy" />
+          </div>
+          <div class="gallery__item" onclick="classList.toggle('active__item');classList.toggle('gallery__item');" >
+            <img class="gallery__item__image" src="images/gallery/10.jpg"  alt="przyklad pracy" />
+          </div>
           </div>
           </section>
           <section class="section__kontakt" id="sectionKontakt">
@@ -202,7 +213,7 @@
                   </li>
                   <li class="kontakt__item">
                     <a href="mailto:chryuszka@gmail.com">
-                      <img class="kontak__item__icon" src="images/icons/email.svg" alt="" /> e-mail: <span class="kontakt__mail"></span>starmetalkrakow@gmail.com</span> </a
+                      <img class="kontak__item__icon" src="images/icons/email.svg" alt="" /><span class="kontakt__mail"></span>starmetalkrakow@gmail.com</span> </a
                     >
                   </li>
                   <li class="kontakt__item">

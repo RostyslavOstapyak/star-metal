@@ -186,8 +186,11 @@ nav {
 
   top: -35px;
   padding-top: 40px;
+  transition: 0.2s;
 }
+
 .language__button {
+  display: none;
   height: 35px;
   width: 35px;
   border: none;
@@ -195,6 +198,12 @@ nav {
   background-position: center;
   background-size: cover;
   margin-right: 10px;
+}
+.language__button_active {
+  display: block;
+}
+.language__button_show {
+  display: block;
 }
 .language__button:hover {
   border: 1px solid #fff;
@@ -415,6 +424,7 @@ main {
     height: 100vw;
   }
 }
+
 /*---------------------kontakt---------------------*/
 
 .section__kontakt {
@@ -490,19 +500,28 @@ a:hover {
 
 /*-----------apperiance------*/
 section {
-  display: none;
-}
-.active {
-  display: block;
   display: flex;
+  min-height: 100vh;
   animation: 0.5s linear 0s apprianceAnimation;
   overflow: hidden;
 }
+
 @keyframes apprianceAnimation {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 1240px) {
+  .language {
+    transform: rotate(90deg);
+    top: 60px;
+    right: -8%;
+  }
+  .language__button {
+    transform: rotate(-90deg);
   }
 }
