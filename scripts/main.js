@@ -4,7 +4,12 @@ let nav = document.getElementById("navID");
 
 burger.onclick = function () {
   nav.classList.toggle("showMenu");
-  langPanel.classList.toggle("showLangList");
+  // langPanel.classList.toggle("showLangList");
+};
+// hide burger
+
+document.getElementsByClassName("nav__item__text").onclick = () => {
+  nav.classList.toggle("showMenu");
 };
 //naming variables for easy axes to them
 let glownaSec = document.getElementById("sectionGlowna");
@@ -22,6 +27,19 @@ let kontaktBtn = document.getElementById("kontaktButton");
 
 //   console.log(scrolled);
 // });
+
+// $("[data-scroll]").on("click", () => {
+//   let blockId = $(this).data("scroll");
+//   let elementOffset = $(elementId).offset().top();
+//   console.log(elementOffset);
+// });
+
+let langPanel = document.getElementById("languagePannel");
+let langPlBtn = document.getElementById("languagePl");
+let langUaBtn = document.getElementById("languageUa");
+let langRuBtn = document.getElementById("languageRu");
+let langEngBtn = document.getElementById("languageEng");
+let activeBtn = document.getElementsByClassName("language__button_active");
 
 activeBtn.onclick = () => {
   console.log("f");
