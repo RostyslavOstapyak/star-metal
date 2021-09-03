@@ -235,10 +235,6 @@ nav {
 
 .showLangList {
   display: block;
-  left: 50%;
-  top: -40px;
-  transform: translateX(-50%);
-  z-index: 3;
 }
 /*--------------------------------------glowna-----------------------*/
 main {
@@ -548,7 +544,7 @@ section {
   .language {
     transform: rotate(90deg);
     top: 60px;
-    right: -8%;
+    right: -2%;
   }
   .language__button {
     transform: rotate(-90deg);

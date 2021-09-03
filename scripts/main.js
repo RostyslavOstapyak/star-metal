@@ -2,15 +2,16 @@ let burger = document.getElementById("navToggle");
 let headerTogle = document.getElementById("headerID");
 let nav = document.getElementById("navID");
 
-burger.onclick = function () {
+function toggleMenu() {
   nav.classList.toggle("showMenu");
-  // langPanel.classList.toggle("showLangList");
-};
-// hide burger
+}
+function hideMenu() {
+  nav.classList.remove("showMenu");
+}
 
-document.getElementsByClassName("nav__item__text").onclick = () => {
-  nav.classList.toggle("showMenu");
-};
+burger.addEventListener("click", toggleMenu);
+nav.addEventListener("click", hideMenu);
+
 //naming variables for easy axes to them
 let glownaSec = document.getElementById("sectionGlowna");
 let uslugiSec = document.getElementById("sectionUslugi");
@@ -22,179 +23,203 @@ let uslugiBtn = document.getElementById("uslugiButton");
 let galeriaBtn = document.getElementById("galeriaButton");
 let kontaktBtn = document.getElementById("kontaktButton");
 
-// window.addEventListener("scroll", () => {
-//   const scrolled = window.scrollY;
-
-//   console.log(scrolled);
-// });
-
-// $("[data-scroll]").on("click", () => {
-//   let blockId = $(this).data("scroll");
-//   let elementOffset = $(elementId).offset().top();
-//   console.log(elementOffset);
-// });
-
 let langPanel = document.getElementById("languagePannel");
 let langPlBtn = document.getElementById("languagePl");
 let langUaBtn = document.getElementById("languageUa");
 let langRuBtn = document.getElementById("languageRu");
 let langEngBtn = document.getElementById("languageEng");
-let activeBtn = document.getElementsByClassName("language__button_active");
+const languagePanel = document.querySelector(".language");
+const languageBtnList = document.querySelectorAll(".language__button ");
 
-activeBtn.onclick = () => {
-  console.log("f");
-  langPlBtn.style.display = "block";
-  langUaBtn.style.display = "block";
-  langRuBtn.style.display = "block";
-  langEngBtn.style.display = "block";
-};
+function showLanguagePanel() {
+  languageBtnList.forEach((el) => {
+    el.classList.toggle("showLangList");
+  });
+}
 
-langPlBtn.onclick = function () {
-  document.getElementById("nav-glowna").innerHTML = "Główna";
-  document.getElementById("nav-uslugi").innerHTML = "Usługi";
-  document.getElementById("nav-galeria").innerHTML = "Galeria";
-  document.getElementById("nav-kontakt").innerHTML = "Kontakt";
+const showLanguagePanelAction = showLanguagePanel.bind(null, null);
 
-  document.getElementById("glowna-text").innerHTML = "Spawanie i obróbka stali";
+languagePanel.addEventListener("click", showLanguagePanelAction);
+// changing language
+const activeBtn = document.querySelectorAll(".language__button_active");
+function deactivateActiveLanguage() {
+  [...activeBtn].forEach((el) => {
+    el.classList.remove("language__button_active");
+  });
+}
+function changeLanguagePl() {
+  deactivateActiveLanguage();
+  document.getElementById("nav-glowna").textContent = "Główna";
+  document.getElementById("nav-uslugi").textContent = "Usługi";
+  document.getElementById("nav-galeria").textContent = "Galeria";
+  document.getElementById("nav-kontakt").textContent = "Kontakt";
+
+  document.getElementById("glowna-text").textContent =
+    "Spawanie i obróbka stali";
 
   //section uslugi
 
-  document.getElementById("uslugi-lineOne").innerHTML =
+  document.getElementById("uslugi-lineOne").textContent =
     "Spawanie MIG/MAG, TIG oraz elektrodą otulinową";
-  document.getElementById("uslugi-lineTwo").innerHTML =
+  document.getElementById("uslugi-lineTwo").textContent =
     "Produkcja oraz montaż bram, furtek, ogrodzeń";
-  document.getElementById("uslugi-lineThre").innerHTML =
+  document.getElementById("uslugi-lineThre").textContent =
     "Kowalstwo artystyczne";
-  document.getElementById("uslugi-lineFour").innerHTML = "Stoły ze stali";
-  document.getElementById("uslugi-lineFive").innerHTML = "Konstrukcje metalowe";
-  document.getElementById("uslugi-lineSix").innerHTML = "Balustrady";
-  document.getElementById("uslugi-lineSeven").innerHTML = "Spawanie bram";
-  document.getElementById("uslugi-lineEight").innerHTML = "Spawanie zawiasów";
-  document.getElementById("uslugi-lineNine").innerHTML = "Spawanie drzwi";
-  document.getElementById("uslugi-lineTen").innerHTML = "Spawanie rur";
-  document.getElementById("uslugi-lineEleven").innerHTML = "Spawanie blach";
-  document.getElementById("uslugi-lineTwelve").innerHTML =
+  document.getElementById("uslugi-lineFour").textContent = "Stoły ze stali";
+  document.getElementById("uslugi-lineFive").textContent =
+    "Konstrukcje metalowe";
+  document.getElementById("uslugi-lineSix").textContent = "Balustrady";
+  document.getElementById("uslugi-lineSeven").textContent = "Spawanie bram";
+  document.getElementById("uslugi-lineEight").textContent = "Spawanie zawiasów";
+  document.getElementById("uslugi-lineNine").textContent = "Spawanie drzwi";
+  document.getElementById("uslugi-lineTen").textContent = "Spawanie rur";
+  document.getElementById("uslugi-lineEleven").textContent = "Spawanie blach";
+  document.getElementById("uslugi-lineTwelve").textContent =
     "Spawanie detali i elementów samochodowych";
-  document.getElementById("uslugi-lineThirteen").innerHTML =
+  document.getElementById("uslugi-lineThirteen").textContent =
     "Możliwość spawania w siedzibie firmy lub u klienta";
 
-  document.getElementById("kontakt-title").innerHTML = "Kontakt";
-  document.getElementById("work-time").innerHTML = "Godziny otwarcia:";
-  document.getElementById("work-time-one").innerHTML = "Pn.-Pt.:";
-  document.getElementById("work-time-two").innerHTML = "So.-Nd.:";
-};
+  document.getElementById("kontakt-title").textContent = "Kontakt";
+  document.getElementById("work-time").textContent = "Godziny otwarcia:";
+  document.getElementById("work-time-one").textContent = "Pn.-Pt.:";
+  document.getElementById("work-time-two").textContent = "So.-Nd.:";
 
-langUaBtn.onclick = function () {
-  document.getElementById("nav-glowna").innerHTML = "Головна";
-  document.getElementById("nav-uslugi").innerHTML = "Послуги";
-  document.getElementById("nav-galeria").innerHTML = "Галерея";
-  document.getElementById("nav-kontakt").innerHTML = "Контакти";
+  langPlBtn.classList.add("language__button_active");
+}
 
-  document.getElementById("glowna-text").innerHTML =
+function changeLanguageUa() {
+  deactivateActiveLanguage();
+
+  document.getElementById("nav-glowna").textContent = "Головна";
+  document.getElementById("nav-uslugi").textContent = "Послуги";
+  document.getElementById("nav-galeria").textContent = "Галерея";
+  document.getElementById("nav-kontakt").textContent = "Контакти";
+
+  document.getElementById("glowna-text").textContent =
     "Зварювальні роботи та металообробка"; // need translation
 
   //section uslugi
 
-  document.getElementById("uslugi-lineOne").innerHTML =
+  document.getElementById("uslugi-lineOne").textContent =
     "Зварювання MIG / MAG, TIG та електродом ";
-  document.getElementById("uslugi-lineTwo").innerHTML =
+  document.getElementById("uslugi-lineTwo").textContent =
     "Виготовлення та монтаж воріт, хвірток та огорож";
-  document.getElementById("uslugi-lineThre").innerHTML = "Художня ковка";
-  document.getElementById("uslugi-lineFour").innerHTML = "Виготовлення столів";
-  document.getElementById("uslugi-lineFive").innerHTML =
+  document.getElementById("uslugi-lineThre").textContent = "Художня ковка";
+  document.getElementById("uslugi-lineFour").textContent =
+    "Виготовлення столів";
+  document.getElementById("uslugi-lineFive").textContent =
     "Виготовлення металевих конструкцій";
-  document.getElementById("uslugi-lineSix").innerHTML = "Виготовлення перил";
-  document.getElementById("uslugi-lineSeven").innerHTML = "Зварювання воріт";
-  document.getElementById("uslugi-lineEight").innerHTML = "Зварювання петель";
-  document.getElementById("uslugi-lineNine").innerHTML = "Зварювання дверей";
-  document.getElementById("uslugi-lineTen").innerHTML = "Зварювання труб";
-  document.getElementById("uslugi-lineEleven").innerHTML =
+  document.getElementById("uslugi-lineSix").textContent = "Виготовлення перил";
+  document.getElementById("uslugi-lineSeven").textContent = "Зварювання воріт";
+  document.getElementById("uslugi-lineEight").textContent = "Зварювання петель";
+  document.getElementById("uslugi-lineNine").textContent = "Зварювання дверей";
+  document.getElementById("uslugi-lineTen").textContent = "Зварювання труб";
+  document.getElementById("uslugi-lineEleven").textContent =
     "Зварювання листового металу";
-  document.getElementById("uslugi-lineTwelve").innerHTML =
+  document.getElementById("uslugi-lineTwelve").textContent =
     "Зварювання деталей та елементів автомобіля";
-  document.getElementById("uslugi-lineThirteen").innerHTML =
+  document.getElementById("uslugi-lineThirteen").textContent =
     "Можливість зварювання в компанії або на місці в замовника";
 
   //kontakt
-  document.getElementById("kontakt-title").innerHTML = "Контакти";
-  document.getElementById("work-time").innerHTML = "Графік роботи:";
-  document.getElementById("work-time-one").innerHTML = "Пн.-Пт.:";
-  document.getElementById("work-time-two").innerHTML = "Сб.-Нд.:";
-};
+  document.getElementById("kontakt-title").textContent = "Контакти";
+  document.getElementById("work-time").textContent = "Графік роботи:";
+  document.getElementById("work-time-one").textContent = "Пн.-Пт.:";
+  document.getElementById("work-time-two").textContent = "Сб.-Нд.:";
 
-langRuBtn.onclick = function () {
-  document.getElementById("nav-glowna").innerHTML = "Главная";
-  document.getElementById("nav-uslugi").innerHTML = "Услуги";
-  document.getElementById("nav-galeria").innerHTML = "Галерея";
-  document.getElementById("nav-kontakt").innerHTML = "Контакт";
+  langUaBtn.classList.add("language__button_active");
+}
 
-  document.getElementById("glowna-text").innerHTML =
+function changeLanguageRu() {
+  deactivateActiveLanguage();
+
+  document.getElementById("nav-glowna").textContent = "Главная";
+  document.getElementById("nav-uslugi").textContent = "Услуги";
+  document.getElementById("nav-galeria").textContent = "Галерея";
+  document.getElementById("nav-kontakt").textContent = "Контакт";
+
+  document.getElementById("glowna-text").textContent =
     "Сварочные работы и металлообработка"; // need translation
 
   //section uslugi
 
-  document.getElementById("uslugi-lineOne").innerHTML =
+  document.getElementById("uslugi-lineOne").textContent =
     "Сварка MIG / MAG, TIG и электродом ";
-  document.getElementById("uslugi-lineTwo").innerHTML =
+  document.getElementById("uslugi-lineTwo").textContent =
     "Изготовление и монтаж ворот, калиток и ограждений";
-  document.getElementById("uslugi-lineThre").innerHTML = "Художественная ковка";
-  document.getElementById("uslugi-lineFour").innerHTML = "Изготовление столов";
-  document.getElementById("uslugi-lineFive").innerHTML =
+  document.getElementById("uslugi-lineThre").textContent =
+    "Художественная ковка";
+  document.getElementById("uslugi-lineFour").textContent =
+    "Изготовление столов";
+  document.getElementById("uslugi-lineFive").textContent =
     "Изготовление металлических конструкций";
-  document.getElementById("uslugi-lineSix").innerHTML = "Изготовление перил";
-  document.getElementById("uslugi-lineSeven").innerHTML = "Сварка ворот";
-  document.getElementById("uslugi-lineEight").innerHTML = "Сварка петель";
-  document.getElementById("uslugi-lineNine").innerHTML = "Сварка дверей";
-  document.getElementById("uslugi-lineTen").innerHTML = "Сварка труб";
-  document.getElementById("uslugi-lineEleven").innerHTML =
+  document.getElementById("uslugi-lineSix").textContent = "Изготовление перил";
+  document.getElementById("uslugi-lineSeven").textContent = "Сварка ворот";
+  document.getElementById("uslugi-lineEight").textContent = "Сварка петель";
+  document.getElementById("uslugi-lineNine").textContent = "Сварка дверей";
+  document.getElementById("uslugi-lineTen").textContent = "Сварка труб";
+  document.getElementById("uslugi-lineEleven").textContent =
     "Сварка листового металла";
-  document.getElementById("uslugi-lineTwelve").innerHTML =
+  document.getElementById("uslugi-lineTwelve").textContent =
     "Сварка деталей и элементов автомобиля";
-  document.getElementById("uslugi-lineThirteen").innerHTML =
+  document.getElementById("uslugi-lineThirteen").textContent =
     "Возможность сварки на фирме или на месте у заказчика";
 
   //kontakt
-  document.getElementById("kontakt-title").innerHTML = "Контакт";
-  document.getElementById("work-time").innerHTML = "Время работы:";
-  document.getElementById("work-time-one").innerHTML = "Пн.-Пт.:";
-  document.getElementById("work-time-two").innerHTML = "Сб.-Вс.:";
-};
+  document.getElementById("kontakt-title").textContent = "Контакт";
+  document.getElementById("work-time").textContent = "Время работы:";
+  document.getElementById("work-time-one").textContent = "Пн.-Пт.:";
+  document.getElementById("work-time-two").textContent = "Сб.-Вс.:";
 
-langEngBtn.onclick = function () {
-  document.getElementById("nav-glowna").innerHTML = "Home       ";
-  document.getElementById("nav-uslugi").innerHTML = "Services       ";
-  document.getElementById("nav-galeria").innerHTML = "Gallery         ";
-  document.getElementById("nav-kontakt").innerHTML = "Contact";
+  langRuBtn.classList.add("language__button_active");
+}
 
-  document.getElementById("glowna-text").innerHTML = "Welding and metalworking"; // need translation
+function changeLanguageEng() {
+  deactivateActiveLanguage();
+
+  document.getElementById("nav-glowna").textContent = "Home";
+  document.getElementById("nav-uslugi").textContent = "Services";
+  document.getElementById("nav-galeria").textContent = "Gallery";
+  document.getElementById("nav-kontakt").textContent = "Contact";
+
+  document.getElementById("glowna-text").textContent =
+    "Welding and metalworking"; // need translation
 
   //section uslugi
 
-  document.getElementById("uslugi-lineOne").innerHTML =
+  document.getElementById("uslugi-lineOne").textContent =
     "MIG / MAG, TIG and electrode welding";
-  document.getElementById("uslugi-lineTwo").innerHTML =
+  document.getElementById("uslugi-lineTwo").textContent =
     "Manufacture and installation gates, wickets and fences";
-  document.getElementById("uslugi-lineThre").innerHTML = "Artistic forging";
-  document.getElementById("uslugi-lineFour").innerHTML =
+  document.getElementById("uslugi-lineThre").textContent = "Artistic forging";
+  document.getElementById("uslugi-lineFour").textContent =
     "Manufacturing metal tables";
-  document.getElementById("uslugi-lineFive").innerHTML =
+  document.getElementById("uslugi-lineFive").textContent =
     "Manufacture of metal structures";
-  document.getElementById("uslugi-lineSix").innerHTML =
+  document.getElementById("uslugi-lineSix").textContent =
     "Manufacture of railings";
-  document.getElementById("uslugi-lineSeven").innerHTML = "Welding gate";
-  document.getElementById("uslugi-lineEight").innerHTML = "Welding gate hinges";
-  document.getElementById("uslugi-lineNine").innerHTML = "Welding doors ";
-  document.getElementById("uslugi-lineTen").innerHTML = "Welding tubes";
-  document.getElementById("uslugi-lineEleven").innerHTML =
+  document.getElementById("uslugi-lineSeven").textContent = "Welding gate";
+  document.getElementById("uslugi-lineEight").textContent =
+    "Welding gate hinges";
+  document.getElementById("uslugi-lineNine").textContent = "Welding doors ";
+  document.getElementById("uslugi-lineTen").textContent = "Welding tubes";
+  document.getElementById("uslugi-lineEleven").textContent =
     "Welding sheet metal";
-  document.getElementById("uslugi-lineTwelve").innerHTML =
+  document.getElementById("uslugi-lineTwelve").textContent =
     "Welding vehicle parts and elements";
-  document.getElementById("uslugi-lineThirteen").innerHTML =
+  document.getElementById("uslugi-lineThirteen").textContent =
     "Possibility of welding at the customer";
 
   //kontakt
-  document.getElementById("kontakt-title").innerHTML = "Contact";
-  document.getElementById("work-time").innerHTML = "Opening hours:";
-  document.getElementById("work-time-one").innerHTML = "Mo.- Fr.:";
-  document.getElementById("work-time-two").innerHTML = "Sa.-Su.:";
-};
+  document.getElementById("kontakt-title").textContent = "Contact";
+  document.getElementById("work-time").textContent = "Opening hours:";
+  document.getElementById("work-time-one").textContent = "Mo.- Fr.:";
+  document.getElementById("work-time-two").textContent = "Sa.-Su.:";
+
+  langEngBtn.classList.add("language__button_active");
+}
+
+langEngBtn.addEventListener("click", changeLanguageEng);
+langUaBtn.addEventListener("click", changeLanguageUa);
+langRuBtn.addEventListener("click", changeLanguageRu);
+langPlBtn.addEventListener("click", changeLanguagePl);
