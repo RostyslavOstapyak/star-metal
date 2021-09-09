@@ -38,12 +38,11 @@ const languageBtnList = document.querySelectorAll(".language__button ");
 const changeLang = (event) => {
   const item = event.target;
   console.log(item);
-  if (item.classList.contains("language")) {
-    // if clicked on language panel
-    languageBtnList.forEach((el) => {
-      el.classList.toggle("showLangList"); // show panel
-    });
-  }
+
+  // if clicked on language panel
+  languageBtnList.forEach((el) => {
+    el.classList.toggle("showLangList"); // show panel
+  });
 
   if (item.classList.contains("language__button")) {
     // if clicked on button
