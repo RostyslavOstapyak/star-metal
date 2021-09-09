@@ -37,6 +37,7 @@ const languageBtnList = document.querySelectorAll(".language__button ");
 
 const changeLang = (event) => {
   const item = event.target;
+  console.log(item);
   if (item.classList.contains("language")) {
     // if clicked on language panel
     languageBtnList.forEach((el) => {
@@ -58,15 +59,19 @@ const changeLang = (event) => {
 
     switch (item.dataset.language) {
       case "PL":
+        console.log("language changed to PL");
         changeLanguagePl();
         break;
       case "UA":
+        console.log("language changed to UA");
         changeLanguageUa();
         break;
       case "RU":
+        console.log("language changed to RU");
         changeLanguageRu();
         break;
       case "ENG":
+        console.log("language changed to ENG");
         changeLanguageEng();
         break;
       default:
