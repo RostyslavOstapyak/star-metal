@@ -31,24 +31,53 @@ let langEngBtn = document.getElementById("languageEng");
 const languagePanel = document.querySelector(".language");
 const languageBtnList = document.querySelectorAll(".language__button ");
 
-function showLanguagePanel() {
-  languageBtnList.forEach((el) => {
-    el.classList.toggle("showLangList");
-  });
-}
-
-const showLanguagePanelAction = showLanguagePanel.bind(null, null);
-
-languagePanel.addEventListener("click", showLanguagePanelAction);
 // changing language
-const activeBtn = document.querySelectorAll(".language__button_active");
-function deactivateActiveLanguage() {
-  [...activeBtn].forEach((el) => {
-    el.classList.remove("language__button_active");
-  });
-}
+
+// chose language for change
+
+const changeLang = (event) => {
+  const item = event.target;
+  if (item.classList.contains("language")) {
+    // if clicked on language panel
+    languageBtnList.forEach((el) => {
+      el.classList.toggle("showLangList"); // show panel
+    });
+  }
+
+  if (item.classList.contains("language__button")) {
+    // if clicked on button
+    if (document.querySelectorAll(".language__button_active")) {
+      //if we have active
+      document.querySelectorAll(".language__button_active").forEach((el) => {
+        //for each language button
+        el.classList.remove("language__button_active"); // remove active class
+      });
+    }
+
+    item.classList.add("language__button_active"); // adding active class for item clicked on
+
+    switch (item.dataset.language) {
+      case "PL":
+        changeLanguagePl();
+        break;
+      case "UA":
+        changeLanguageUa();
+        break;
+      case "RU":
+        changeLanguageRu();
+        break;
+      case "ENG":
+        changeLanguageEng();
+        break;
+      default:
+        console.log("error");
+    }
+  }
+};
+
+languagePanel.addEventListener("click", changeLang);
+
 function changeLanguagePl() {
-  deactivateActiveLanguage();
   document.getElementById("nav-glowna").textContent = "Główna";
   document.getElementById("nav-uslugi").textContent = "Usługi";
   document.getElementById("nav-galeria").textContent = "Galeria";
@@ -88,8 +117,6 @@ function changeLanguagePl() {
 }
 
 function changeLanguageUa() {
-  deactivateActiveLanguage();
-
   document.getElementById("nav-glowna").textContent = "Головна";
   document.getElementById("nav-uslugi").textContent = "Послуги";
   document.getElementById("nav-galeria").textContent = "Галерея";
@@ -131,8 +158,6 @@ function changeLanguageUa() {
 }
 
 function changeLanguageRu() {
-  deactivateActiveLanguage();
-
   document.getElementById("nav-glowna").textContent = "Главная";
   document.getElementById("nav-uslugi").textContent = "Услуги";
   document.getElementById("nav-galeria").textContent = "Галерея";
@@ -175,8 +200,6 @@ function changeLanguageRu() {
 }
 
 function changeLanguageEng() {
-  deactivateActiveLanguage();
-
   document.getElementById("nav-glowna").textContent = "Home";
   document.getElementById("nav-uslugi").textContent = "Services";
   document.getElementById("nav-galeria").textContent = "Gallery";
