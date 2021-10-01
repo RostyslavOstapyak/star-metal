@@ -100,6 +100,11 @@ body {
   font-size: 3em;
   text-shadow: 1px 1px 2px rgb(15 15 15 / 100%);
 }
+@media (max-width: 710px) {
+  .textStyle {
+    margin-left: 8px;
+  }
+}
 .phoneLink {
   font-family: "Otomanopee One";
   color: white;
@@ -396,7 +401,7 @@ main {
   min-height: 100vh;
   padding-top: 200px;
 }
-.gallery__item {
+.gallery-item {
   overflow: hidden;
   max-width: 350px;
   height: 350px;
@@ -406,11 +411,11 @@ main {
   margin-right: 25px;
 }
 @media (max-width: 430px) {
-  .gallery__item {
+  .gallery-item {
     margin-right: 0;
   }
 }
-.gallery__item__image {
+.gallery-item__image {
   height: 350px;
 }
 .active__item {
@@ -431,18 +436,36 @@ main {
   display: flex;
   flex-direction: column;
 }
-.active__item > .gallery__item__image {
+.active__item > .gallery-item__image {
   width: auto;
   height: 100%;
   padding: 40px;
 }
 
 @media (max-width: 710px) {
-  .active__item > .gallery__item__image {
+  .active__item > .gallery-item__image {
     width: 100vh;
     height: 100vw;
   }
 }
+
+.arrows {
+  display: none;
+  position: fixed;
+  bottom: 5%;
+}
+.showArrows {
+  display: flex;
+  z-index: 2;
+}
+
+/* .sliderArrow {
+} */
+
+/* .arrowRight {
+}
+.arrowLeft {
+} */
 
 /*---------------------kontakt---------------------*/
 

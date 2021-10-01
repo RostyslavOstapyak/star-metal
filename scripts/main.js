@@ -43,7 +43,7 @@ const changeLang = (event) => {
   languageBtnList.forEach((el) => {
     el.classList.toggle("showLangList"); // show panel
   });
-
+  // if clicked on button
   if (item.classList.contains("language__button")) {
     // if clicked on button
     if (document.querySelectorAll(".language__button_active")) {
