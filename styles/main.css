@@ -455,7 +455,8 @@ main {
 }
 .showArrows {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0px 5%;
   width: 100%;
   z-index: 2;
 }
