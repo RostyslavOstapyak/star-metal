@@ -451,20 +451,29 @@ main {
 .arrows {
   display: none;
   position: fixed;
-  bottom: 5%;
+  bottom: 50%;
 }
 .showArrows {
   display: flex;
+  justify-content: space-around;
+  width: 100%;
   z-index: 2;
 }
 
-/* .sliderArrow {
-} */
-
-/* .arrowRight {
+.sliderArrow {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(253, 253, 253, 0.3);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../images/icons/right-arrow.svg);
+  border: none;
 }
+
 .arrowLeft {
-} */
+  transform: rotate(180deg);
+}
 
 /*---------------------kontakt---------------------*/
 
