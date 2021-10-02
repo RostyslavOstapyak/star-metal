@@ -471,6 +471,13 @@ main {
   border: none;
 }
 
+@media (max-width: 500px) {
+  .showArrows {
+    justify-content: space-between;
+    padding: 1%;
+  }
+}
+
 .arrowLeft {
   transform: rotate(180deg);
 }
