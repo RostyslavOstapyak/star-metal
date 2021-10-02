@@ -444,7 +444,6 @@ main {
 
 @media (max-width: 710px) {
   .active__item > .gallery-item__image {
-    width: 100vh;
     height: 100vw;
   }
 }
