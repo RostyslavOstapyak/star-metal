@@ -100,11 +100,7 @@ body {
   font-size: 3em;
   text-shadow: 1px 1px 2px rgb(15 15 15 / 100%);
 }
-@media (max-width: 710px) {
-  .textStyle {
-    margin-left: 8px;
-  }
-}
+
 .phoneLink {
   font-family: "Otomanopee One";
   color: white;
@@ -262,6 +258,11 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+@media (max-width: 710px) {
+  .section__glowna__content {
+    padding-left: 8px;
+  }
 }
 
 .burger {
